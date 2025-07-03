@@ -1,0 +1,58 @@
+# Arduino IDE files
+*.hex
+*.eep
+*.lss
+*.map
+*.sym
+*.tmp
+*.o
+*.d
+*.elf
+*.bin
+
+# Arduino IDE preferences and settings
+.vscode/
+.idea/
+*.code-workspace
+
+# Libraries (if they're third-party libraries)
+libraries/
+
+# Temporary/test sketches (uncomment lines below for sketches you want to ignore)
+# sketch_*/
+# test*/
+# *Test*/
+# *testing*/
+# hello*/
+# ny*/
+
+# Specific temporary sketches from your project
+sketch_jul3c/
+sketch_jul3e/
+sketch_jun30d/
+sketch_may29a/
+testFront/
+helloTran/
+loraTesting/
+nyyyy/
+
+# Build artifacts
+build/
+*.tmp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Log files
+*.log
