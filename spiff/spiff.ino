@@ -2,7 +2,8 @@
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
 
-const char* ssid = "ESP32_AP";
+// Set your desired WiFi credentials for AP mode
+const char* ssid = "Trekker_AP";
 const char* password = "12345678";
 
 AsyncWebServer server(80);
@@ -10,7 +11,7 @@ AsyncWebServer server(80);
 void setup() {
   Serial.begin(115200);
 
-  // Start WiFi in AP mode
+  // Start WiFi in Access Point mode for offline use
   WiFi.softAP(ssid, password);
   Serial.print("AP IP address: ");
   Serial.println(WiFi.softAPIP());
@@ -21,10 +22,13 @@ void setup() {
     return;
   }
 
-  // Serve index.html from SPIFFS
+  // Serve index.html at root
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/index.html", "text/html");
   });
+
+  // Serve all static files (CSS, JS, images)
+  server.serveStatic("/", SPIFFS, "/");
 
   server.begin();
 }
